@@ -114,9 +114,8 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 @media(max-width:480px){.doors{grid-template-columns:minmax(0,1fr)}.door{aspect-ratio:16/12}}
 
 /* worked with: client logos */
-.clients{padding:clamp(40px,6vw,72px) 0 clamp(36px,5vw,60px)}
-.clients-in{display:flex;align-items:center;gap:clamp(24px,4vw,56px)}
-.clients .label{flex:none;color:var(--dim)}
+.clients-in{display:flex;align-items:center;gap:clamp(24px,4vw,56px);margin-bottom:clamp(36px,5vw,56px)}
+.clients-in .label{flex:none;color:var(--dim)}
 .logos{flex:1;display:flex;align-items:center;justify-content:space-between;gap:clamp(24px,4vw,64px)}
 .logos img{width:auto;opacity:.62;transition:opacity .3s,transform .3s}
 .logos img:hover{opacity:1;transform:translateY(-2px)}
