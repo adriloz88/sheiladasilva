@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unscripted TV — Sheila Da Silva, Video Editor</title>
+<meta name="description" content="Unscripted TV work edited by Sheila Da Silva. Finding the story in hours of footage — building characters, comedic beats and emotional payoffs for docu-reality, competition and talk formats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="unscripted" class="inner">
+<div class="grain" aria-hidden="true"></div>
+<div class="playhead" id="playhead" aria-hidden="true"></div>
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html">Sheila <span>Da Silva</span></a>
+    <div class="links">
+      <div class="dd">
+        <button aria-expanded="false" aria-haspopup="true">Work <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+        <div class="menu" role="menu"><a href="scripted.html" data-cat="scripted">Scripted<span data-count="scripted"></span></a><a href="unscripted.html" data-cat="unscripted">Unscripted TV<span data-count="unscripted"></span></a><a href="social-media.html" data-cat="digital">Social Media<span data-count="digital"></span></a><a href="music.html" data-cat="music">Music Videos<span data-count="music"></span></a></div>
+      </div>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a class="pill" href="index.html#contact"><i class="dot"></i>Available for bookings</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</nav>
+<div class="mmenu">
+  <a href="index.html">Home</a>
+  <a href="scripted.html">Work</a>
+  <div class="sub"><a href="scripted.html" data-cat="scripted">Scripted</a><a href="unscripted.html" data-cat="unscripted">Unscripted TV</a><a href="social-media.html" data-cat="digital">Social Media</a><a href="music.html" data-cat="music">Music Videos</a></div>
+  <a href="index.html#about">About</a>
+  <a href="index.html#contact">Contact</a>
+  <a class="pill" href="index.html#contact"><i class="dot"></i>Available for bookings</a>
+</div>
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb label"><a href="index.html#work">Work</a><span>/</span><span>Unscripted TV</span></div>
+    <h1>Unscripted <em>TV</em></h1>
+    <div class="intro"><p>Finding the story in hours of footage — building characters, comedic beats and emotional payoffs for docu-reality, competition and talk formats.</p><span class="count" id="count"></span></div>
+    <div class="index" id="index"></div>
+  </div>
+</header>
+<main class="wrap"><div id="list"></div></main>
+<section class="next"><div class="wrap" id="next"></div></section>
+<footer><div class="wrap"><span>© <span id="yr"></span> Sheila Da Silva · California · Remote</span><a href="#" class="label">Back to top ↑</a></div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+  <div class="lb-in">
+    <button class="lb-close" id="lbClose" aria-label="Close player">✕</button>
+    <div class="lb-grid">
+      <div class="lb-left">
+        <div class="screen" id="lbScreen"></div>
+        <div class="lb-clips" id="lbClipsWrap">
+          <div class="lb-clips-head"><span class="label" id="lbClipCount"></span><span class="navbtns"><button id="lbPrev" aria-label="Previous clip">←</button><button id="lbNext" aria-label="Next clip">→</button></span></div>
+          <div class="strip" id="lbStrip"></div>
+        </div>
+      </div>
+      <aside class="lb-info">
+        <span class="label" id="lbKind"></span>
+        <h3 id="lbTitle"></h3>
+        <div class="now" id="lbNow"></div>
+        <div class="role" id="lbRole"></div>
+        <div class="awards" id="lbAwards"></div>
+        <dl class="facts" id="lbFacts"></dl>
+        <div class="desc" id="lbDesc"></div>
+        <a class="ext" id="lbExt" href="#" target="_blank" rel="noopener"></a>
+      </aside>
+    </div>
+  </div>
+</div>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
