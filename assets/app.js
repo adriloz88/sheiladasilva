@@ -56,6 +56,21 @@ const setMenu = open => { document.body.classList.toggle("menu-open", open); bur
 burger.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
 document.querySelectorAll(".mmenu a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 
+/* About / Contact stay purple once clicked (and when the address points to them) */
+const markSection = () => {
+  const h = location.hash;
+  document.querySelectorAll('.links>a, .mmenu>a').forEach(a => {
+    const href = a.getAttribute("href") || "";
+    a.classList.toggle("on", page === "home" && !!h && href.endsWith(h) && (h === "#about" || h === "#contact"));
+  });
+};
+document.querySelectorAll('.links>a, .mmenu>a').forEach(a => a.addEventListener("click", () => {
+  document.querySelectorAll('.links>a, .mmenu>a').forEach(x => x.classList.remove("on"));
+  if (/#(about|contact)$/.test(a.getAttribute("href") || "")) a.classList.add("on");
+}));
+addEventListener("hashchange", markSection); markSection();
+if (CATS && page && page !== "home") document.querySelectorAll('.mmenu>a[href="scripted.html"]').forEach(a => a.classList.add("on"));
+
 /* menu counts + current page */
 document.querySelectorAll("[data-count]").forEach(el => el.textContent = pad(byCat(el.dataset.count).length));
 if (CATS.some(c => c.id === page)) {

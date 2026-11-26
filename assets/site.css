@@ -42,11 +42,13 @@ h2{font-weight:500;font-size:clamp(34px,4.6vw,54px);line-height:1.05;letter-spac
 nav{position:fixed;inset:0 0 auto;z-index:80;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
 nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px);border-color:var(--line)}
 .nav-in{display:flex;align-items:center;gap:30px;height:68px}
-.logo{font-weight:600;font-size:17px;text-decoration:none;margin-right:auto;letter-spacing:-.01em}
+.logo{font-weight:600;font-size:17px;text-decoration:none;margin-right:auto;letter-spacing:-.01em;transition:color .2s}
+.logo:hover{color:var(--green)}
 .logo span{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--purple)}
 .links{display:flex;align-items:center;gap:26px}
 .links>a,.dd>button{text-decoration:none;font-size:14px;color:var(--mute);transition:color .2s;background:none;border:0;padding:8px 0;display:inline-flex;align-items:center;gap:6px}
-.links>a:hover,.dd>button:hover,.links .on,.dd.on>button{color:var(--ink)}
+.links>a:hover,.dd>button:hover{color:var(--green)}
+.links>a.on,.dd.on>button,.dd.open>button,.links>a.on:hover,.dd.on>button:hover,.dd.open>button:hover{color:var(--purple)}
 .dd{position:relative}
 .dd>button svg{width:10px;height:10px;transition:transform .25s}
 .dd.open>button svg{transform:rotate(180deg)}
@@ -55,8 +57,11 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 .menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
 .menu a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:11px 12px;border-radius:8px;text-decoration:none;font-size:15px}
 .menu a span{font:500 10.5px/1 var(--mono);color:var(--dim)}
-.menu a:hover,.menu a.on{background:var(--panel2)}
-.menu a.on span,.menu a:hover span{color:var(--green)}
+.menu a{transition:background .2s,color .2s}
+.menu a:hover{background:var(--panel2);color:var(--green)}
+.menu a.on,.menu a.on:hover{background:var(--panel2);color:var(--purple)}
+.menu a:hover span{color:var(--green)}
+.menu a.on span{color:var(--purple)}
 .pill{display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--mono);color:var(--green);text-decoration:none;white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(76,187,23,.6)}70%{box-shadow:0 0 0 8px rgba(76,187,23,0)}100%{box-shadow:0 0 0 0 rgba(76,187,23,0)}}
@@ -70,7 +75,9 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 .mmenu>a{font-size:40px;font-weight:500;text-decoration:none;letter-spacing:-.02em;padding:4px 0}
 .mmenu .sub{display:flex;flex-direction:column;margin:2px 0 14px;padding-left:16px;border-left:1px solid var(--line)}
 .mmenu .sub a{font-size:20px;color:var(--mute);text-decoration:none;padding:6px 0}
-.mmenu .sub a.on{color:var(--ink)}
+.mmenu>a,.mmenu .sub a{transition:color .2s}
+.mmenu>a:hover,.mmenu .sub a:hover{color:var(--green)}
+.mmenu>a.on,.mmenu .sub a.on{color:var(--purple)}
 .mmenu .pill{margin-top:24px;font-size:12px}
 @media(max-width:1000px){nav .pill{display:none}.nav-in{gap:22px}}
 @media(max-width:520px){.links{display:none}.burger{display:block}}
