@@ -185,6 +185,49 @@ if (track) {
   /* two copies so the loop is seamless */
   track.innerHTML = AWARDS.map(a => card(a, false)).join("") + AWARDS.map(a => card(a, true)).join("");
   $("#awardCount").textContent = `${pad(AWARDS.length)} HONORS`;
+
+  /* motion: slow auto-drift to the right, plus ‹ › buttons and drag / swipe */
+  const mq = $("#awardMarquee"), wrap = $("#awardWrap");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const SPEED = 24;                 /* px per second, left → right */
+  let x = null, glide = 0, hover = false, drag = null, last = performance.now();
+  const half = () => track.scrollWidth / 2;
+  const step = () => { const c = track.children; return c.length > 1 ? c[1].getBoundingClientRect().left - c[0].getBoundingClientRect().left : 300; };
+  const wrapX = () => { const h = half(); if (!h) return; while (x > 0) x -= h; while (x <= -h) x += h; };
+  const frame = now => {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (x === null) x = -half();
+    if (!drag) {
+      if (!hover && !reduce) x += SPEED * dt;
+      if (Math.abs(glide) > 0.5) { const m = glide * 0.14; x += m; glide -= m; } else glide = 0;
+    }
+    wrapX();
+    track.style.transform = `translate3d(${x}px,0,0)`;
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+  wrap.addEventListener("mouseenter", () => hover = true);
+  wrap.addEventListener("mouseleave", () => hover = false);
+  mq.addEventListener("focusin", () => hover = true);
+  mq.addEventListener("focusout", () => hover = false);
+  $("#awardPrev").addEventListener("click", () => glide -= step());
+  $("#awardNext").addEventListener("click", () => glide += step());
+
+  let moved = false;
+  mq.addEventListener("pointerdown", e => {
+    if (e.button !== 0) return;
+    drag = {sx: e.clientX, x0: x, id: e.pointerId}; moved = false; glide = 0;
+  });
+  addEventListener("pointermove", e => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.sx;
+    if (!moved && Math.abs(dx) > 6) { moved = true; mq.classList.add("dragging"); try { mq.setPointerCapture(drag.id); } catch {} }
+    if (moved) x = drag.x0 + dx;
+  });
+  const endDrag = () => { if (!drag) return; drag = null; setTimeout(() => mq.classList.remove("dragging"), 0); };
+  addEventListener("pointerup", endDrag); addEventListener("pointercancel", endDrag);
+  mq.addEventListener("click", e => { if (moved) { e.preventDefault(); moved = false; } }, true);
+  mq.addEventListener("dragstart", e => e.preventDefault());
 }
 
 /* ---- category pages ---- */
