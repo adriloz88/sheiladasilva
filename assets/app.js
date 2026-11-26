@@ -78,6 +78,21 @@ if (CATS.some(c => c.id === page)) {
   document.querySelectorAll(`a[data-cat="${page}"]`).forEach(a => a.classList.add("on"));
 }
 
+/* ---- phone tab bar ---- */
+const tabbar = $(".tabbar"), sheetBtn = $('.tabbar [data-tab="work"]');
+const setSheet = open => { document.body.classList.toggle("sheet-open", open); sheetBtn.setAttribute("aria-expanded", open); markTabs(); };
+const markTabs = () => {
+  const h = location.hash, open = document.body.classList.contains("sheet-open");
+  const active = open || (page !== "home") ? "work" : h === "#about" ? "about" : h === "#contact" ? "contact" : "home";
+  tabbar.querySelectorAll("[data-tab]").forEach(t => t.classList.toggle("on", t.dataset.tab === active));
+};
+sheetBtn.addEventListener("click", () => setSheet(!document.body.classList.contains("sheet-open")));
+$("#sheetBg").addEventListener("click", () => setSheet(false));
+document.querySelectorAll(".sheet a").forEach(a => a.addEventListener("click", () => setSheet(false)));
+tabbar.querySelectorAll("a[data-tab]").forEach(a => a.addEventListener("click", () => setTimeout(markTabs, 0)));
+addEventListener("hashchange", markTabs);
+markTabs();
+
 /* ---- lightbox player: video left, details right ---- */
 const lb = $("#lb"), screen = $("#lbScreen"), strip = $("#lbStrip");
 let lastFocus = null, cur = null, idx = 0;
@@ -121,7 +136,7 @@ $("#lbNext").addEventListener("click", () => load((idx + 1) % cur.videos.length,
 $("#lbClose").addEventListener("click", closePlayer);
 lb.addEventListener("click", e => { if (e.target === lb) closePlayer(); });
 addEventListener("keydown", e => {
-  if (e.key === "Escape") { if (lb.classList.contains("open")) closePlayer(); else { setDD(false); setMenu(false); } }
+  if (e.key === "Escape") { if (lb.classList.contains("open")) closePlayer(); else { setDD(false); setMenu(false); setSheet(false); } }
 });
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-play]"); if (!t) return;
@@ -177,6 +192,7 @@ if (cat) {
 }
 
 /* ---- reel button ---- */
+$(".tab-reel").addEventListener("click", () => { setSheet(false); openPlayer(PROJECTS.find(p => p.id === "reel")); });
 const reelBtn = $("#watchReel");
 if (reelBtn) reelBtn.addEventListener("click", () => openPlayer(PROJECTS.find(p => p.id === "reel")));
 
