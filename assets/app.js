@@ -41,10 +41,14 @@ addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
 const dd = $(".dd"), ddBtn = $(".dd>button");
 const setDD = open => { dd.classList.toggle("open", open); ddBtn.setAttribute("aria-expanded", open); };
-/* on mouse devices hover already opened it, so a click keeps it open; on touch, a tap toggles */
-ddBtn.addEventListener("click", e => { e.stopPropagation(); setDD(matchMedia("(hover:hover)").matches ? true : !dd.classList.contains("open")); });
-dd.addEventListener("mouseenter", () => matchMedia("(hover:hover)").matches && setDD(true));
-dd.addEventListener("mouseleave", () => matchMedia("(hover:hover)").matches && setDD(false));
+/* click to open; stays open until an option is picked, a click lands elsewhere, or Esc */
+ddBtn.addEventListener("click", e => { e.stopPropagation(); setDD(!dd.classList.contains("open")); });
+dd.querySelectorAll(".menu a").forEach(a => a.addEventListener("click", () => setDD(false)));
+dd.addEventListener("keydown", e => {
+  const items = [...dd.querySelectorAll(".menu a")], i = items.indexOf(document.activeElement);
+  if (e.key === "ArrowDown") { e.preventDefault(); setDD(true); items[(i + 1) % items.length].focus(); }
+  if (e.key === "ArrowUp") { e.preventDefault(); setDD(true); items[(i - 1 + items.length) % items.length].focus(); }
+});
 document.addEventListener("click", e => { if (!dd.contains(e.target)) setDD(false); });
 
 const burger = $("#burger");

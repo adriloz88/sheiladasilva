@@ -52,6 +52,7 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 .dd.open>button svg{transform:rotate(180deg)}
 .menu{position:absolute;top:calc(100% + 10px);left:-16px;min-width:250px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 24px 60px -20px rgba(0,0,0,.8)}
 .dd.open .menu{opacity:1;transform:none;pointer-events:auto}
+.menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
 .menu a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:11px 12px;border-radius:8px;text-decoration:none;font-size:15px}
 .menu a span{font:500 10.5px/1 var(--mono);color:var(--dim)}
 .menu a:hover,.menu a.on{background:var(--panel2)}
