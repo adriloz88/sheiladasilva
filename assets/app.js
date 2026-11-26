@@ -2,6 +2,19 @@
 /* .map(yt) passes the array index as a label: drop non-text labels */
 PROJECTS.forEach(p => p.videos.forEach(v => { if (typeof v.label !== "string") delete v.label; }));
 
+/* festival honors for Summer Fog (Christopher Kenji) */
+{ const sf = PROJECTS.find(p => p.id === "mv-5GbaPiJKkK8");
+  if (sf) sf.awards = ["London Intl. Monthly Film Festival — Honorable Mention, Best Editing (Feb 2022)", "Tokyo Intl. Monthly Film Festival — Honorable Mention, Best Editing (2022)"]; }
+
+/* recognition banner */
+const AWARDS = [
+  {org:"Critics Choice Awards", result:"Nominee", cat:"Best Sports Show", work:"Like a Girl", href:"unscripted.html#likeagirl"},
+  {org:"Shorty Impact Awards", result:"Audience Honor", cat:"Gender Equality", work:"Like a Girl", href:"unscripted.html#likeagirl"},
+  {org:"The Buzzies", result:"Nominee", cat:"Best Short Form Factual", work:"Fascinating Fails", sub:"PBS Terra", href:"social-media.html#fascinatingfails"},
+  {org:"London International Monthly Film Festival", result:"Honorable Mention", cat:"Best Editing · February 2022", work:"Summer Fog", sub:"Christopher Kenji", href:"music.html#mv-5GbaPiJKkK8"},
+  {org:"Tokyo International Monthly Film Festival", result:"Honorable Mention", cat:"Best Editing · 2022", work:"Summer Fog", sub:"Christopher Kenji", href:"music.html#mv-5GbaPiJKkK8"}
+];
+
 const CATS = [
   {id:"scripted",   page:"scripted.html",   name:"Scripted",        unit:"projects", img:"images/sleepless.jpg",
    short:"Short and feature films, trailers and post supervision.",
@@ -157,6 +170,18 @@ if (page === "home") {
     <span class="in"><span class="n">${pad(i + 1)} · ${pad(byCat(c.id).length)} ${c.unit}</span><b>${esc(c.name)}</b><small>${esc(c.short)}</small></span></a>`).join("");
 }
 
+/* ---- recognition banner (home) ---- */
+const track = $("#awardTrack");
+if (track) {
+  const card = (a, dup) => `<a class="award${dup ? " dup" : ""}" href="${a.href}"${dup ? ' aria-hidden="true" tabindex="-1"' : ""}>
+    <span class="wreath"><svg viewBox="0 0 240 240" aria-hidden="true"><use href="#laurel"/></svg>
+      <span class="in"><span class="org">${esc(a.org)}</span><b>${esc(a.result)}</b><span class="cat">${esc(a.cat)}</span></span></span>
+    <small>${esc(a.work)}${a.sub ? ` <i>· ${esc(a.sub)}</i>` : ""}</small></a>`;
+  /* two copies so the loop is seamless */
+  track.innerHTML = AWARDS.map(a => card(a, false)).join("") + AWARDS.map(a => card(a, true)).join("");
+  $("#awardCount").textContent = `${pad(AWARDS.length)} HONORS`;
+}
+
 /* ---- category pages ---- */
 const cat = CATS.find(c => c.id === page);
 if (cat) {
@@ -166,7 +191,7 @@ if (cat) {
   if (cat.id === "music") {
     host.className = "screenings";
     host.innerHTML = list.map((p, i) => `<article class="screening rise" id="${esc(p.id)}">
-      <button class="media" data-play="${esc(p.id)}" aria-label="Play ${esc(p.title)} by ${esc(p.kind)}">${img(p.thumb)}<span class="pb">${PLAY}</span></button>
+      <button class="media" data-play="${esc(p.id)}" aria-label="Play ${esc(p.title)} by ${esc(p.kind)}">${img(p.thumb)}<span class="pb">${PLAY}</span>${(p.awards || []).length ? `<span class="aw">${p.awards.length} AWARDS</span>` : ""}</button>
       <div class="meta"><div><b>${esc(p.title)}</b><small>${esc(p.kind)}</small></div><span class="n">${pad(i + 1)}</span></div></article>`).join("");
   } else {
     host.className = "projects";
