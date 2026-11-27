@@ -26,6 +26,11 @@ PROJECTS.forEach(p => p.videos.forEach(v => { if (typeof v.label !== "string") d
     if (f.videos[1]) f.videos[1].label = "Full Short Film";
   } }
 
+/* Restoration, Inc.: link to the full movie */
+{ const r = PROJECTS.find(p => p.id === "restoration");
+  if (r) r.link = {label:"Watch movie", url:"https://www.primevideo.com/region/na/detail/0FQTIDUNDNUB9RNM4FZXCF1JOD"}; }
+const linkBtn = p => p.link ? `<a class="btn btn-p ext-btn" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label)} <span aria-hidden="true">↗</span></a>` : "";
+
 /* recognition banner */
 const AWARDS = [
   {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
@@ -157,6 +162,7 @@ const openPlayer = (p, i = 0) => {
   $("#lbAwards").innerHTML = (p.awards || []).map(a => `<span>${esc(a)}</span>`).join("");
   $("#lbFacts").innerHTML = Object.entries(p.facts || {}).filter(([k]) => !(k === "Role" && p.role)).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
   $("#lbDesc").innerHTML = (p.desc || []).map(x => `<p>${esc(x)}</p>`).join("");
+  $("#lbLink").innerHTML = linkBtn(p);
   $("#lbClipsWrap").style.display = multi ? "" : "none";
   $("#lbClipCount").textContent = multi ? `${pad(p.videos.length)} clips` : "";
   strip.innerHTML = multi ? p.videos.map((v, k) => `<button data-i="${k}" aria-current="false"><div class="th">${img(thumbOf(v, p))}<i>${pad(k + 1)}</i></div><span>${esc(v.label || "Clip " + pad(k + 1))}</span></button>`).join("") : "";
@@ -272,7 +278,7 @@ if (cat) {
         ${(p.awards || []).length ? `<div class="awards">${p.awards.map(a => `<span>${esc(a)}</span>`).join("")}</div>` : ""}
         <dl class="facts">${Object.entries(p.facts || {}).filter(([k]) => k !== "Role").map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
         <div class="desc${d.length > 1 ? " clamp" : ""}">${d.map(x => `<p>${esc(x)}</p>`).join("")}${d.length > 1 ? `<button class="more">Read more</button>` : ""}</div>
-        <button class="btn btn-g" data-play="${esc(p.id)}"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg>${p.videos.length > 1 ? `Watch ${p.videos.length} clips` : "Watch"}</button>
+        <button class="btn btn-g" data-play="${esc(p.id)}"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg>${p.videos.length > 1 ? `Watch ${p.videos.length} clips` : p.link ? "Watch trailer" : "Watch"}</button>${linkBtn(p)}
       </div></article>`;
     }).join("");
     host.addEventListener("click", e => { const m = e.target.closest(".more"); if (m) { m.parentElement.classList.remove("clamp"); m.remove(); } });

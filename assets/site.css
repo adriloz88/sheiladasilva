@@ -346,3 +346,10 @@ footer a:hover{color:var(--ink)}
   .lb{padding-bottom:110px}
   footer{padding-bottom:20px}
 }
+
+/* external "Watch movie" button */
+.txt .ext-btn{margin-left:10px}
+.ext-btn span{font-size:13px}
+.lb-link:empty{display:none}
+.lb-link{margin-top:18px}
+@media(max-width:420px){.txt .ext-btn{margin-left:0}}
