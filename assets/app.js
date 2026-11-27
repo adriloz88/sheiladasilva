@@ -10,9 +10,29 @@ PROJECTS.forEach(p => p.videos.forEach(v => { if (typeof v.label !== "string") d
 { const sc = PROJECTS.find(p => p.id === "sleepless");
   if (sc) sc.awards = ["Chelsea Film Festival 2025 — Nominee, Best Short Film (Narrative Short Award)"]; }
 
+/* Fish Out of Water: honors (from the film's poster) + clip names */
+{ const f = PROJECTS.find(p => p.id === "fish");
+  if (f) {
+    f.awards = [
+      "Global Film Festival Awards, Los Angeles — Winner",
+      "Best Shorts Competition — Award of Merit",
+      "IndieFEST Film Awards — Award of Merit",
+      "48 Independent Short Film Festival 2018 — Best Actor",
+      "Finalist — Australia Independent FF 2018 · Olympus FF 2019 · California Music Video & Film Awards",
+      "Semi-Finalist — LA Independent Film Festival Awards 2018",
+      "Official Selection — Festival Internacional de Cortometrajes Independientes 2019"
+    ];
+    if (f.videos[0]) f.videos[0].label = "Trailer";
+    if (f.videos[1]) f.videos[1].label = "Full Short Film";
+  } }
+
 /* recognition banner */
 const AWARDS = [
   {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
+  {org:"Global Film Festival Awards", result:"Winner", cat:"Los Angeles", work:"Fish Out of Water", sub:"Dir. Chunyu Bao", href:"scripted.html#fish"},
+  {org:"Best Shorts Competition", result:"Award of Merit", cat:"Short Film", work:"Fish Out of Water", sub:"Dir. Chunyu Bao", href:"scripted.html#fish"},
+  {org:"IndieFEST Film Awards", result:"Award of Merit", cat:"Short Film", work:"Fish Out of Water", sub:"Dir. Chunyu Bao", href:"scripted.html#fish"},
+  {org:"48 Independent Short Film Festival", result:"Winner", cat:"Best Actor · 2018", work:"Fish Out of Water", sub:"Dir. Chunyu Bao", href:"scripted.html#fish"},
   {org:"Critics Choice Awards", result:"Nominee", cat:"Best Sports Show", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"Shorty Impact Awards", result:"Audience Honor", cat:"Gender Equality", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"The Buzzies", result:"Nominee", cat:"Best Short Form Factual", work:"Fascinating Fails", sub:"PBS Terra", href:"social-media.html#fascinatingfails"},
