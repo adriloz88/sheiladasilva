@@ -116,14 +116,15 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 /* worked with: client logos */
 .clients-in{display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2vw,22px);margin-bottom:clamp(30px,4vw,44px)}
 .clients-in .label{flex:none;color:var(--dim)}
-.logos{width:100%;max-width:980px;display:flex;align-items:center;justify-content:space-between;gap:clamp(24px,4vw,64px)}
+.logos{width:100%;max-width:1120px;display:flex;align-items:center;justify-content:space-between;gap:clamp(24px,4vw,64px)}
 .logos img{width:auto;opacity:.62;transition:opacity .3s,transform .3s}
 .logos img:hover{opacity:1;transform:translateY(-2px)}
-.lg-fuse{height:26px}.lg-pbs{height:34px}.lg-ms{height:23px}.lg-reebok{height:34px}
+.lg-fuse{height:26px}.lg-pbs{height:34px}.lg-ms{height:23px}.lg-evo{height:40px}.lg-reebok{height:34px}.lg-ln{height:17px}
 @media(max-width:760px){
   .clients-in{gap:20px}
   .logos{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px;justify-items:center}
-  .lg-fuse{height:26px}.lg-pbs{height:34px}.lg-ms{height:22px}.lg-reebok{height:34px}
+  .logos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .lg-fuse{height:22px}.lg-pbs{height:30px}.lg-ms{height:17px}.lg-evo{height:34px}.lg-reebok{height:30px}.lg-ln{height:11px}
 }
 
 /* recognition: slow award banner drifting left → right */
