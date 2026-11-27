@@ -114,7 +114,6 @@ markTabs();
 /* ---- lightbox player: video left, details right ---- */
 const lb = $("#lb"), screen = $("#lbScreen"), strip = $("#lbStrip");
 let lastFocus = null, cur = null, idx = 0;
-const watchUrl = v => v.type === "yt" ? `https://www.youtube.com/watch?v=${v.id}` : `https://vimeo.com/${v.id}`;
 const clipName = (v, k) => v.label || (cur.videos.length > 1 ? `${cur.title} — clip ${pad(k + 1)}` : cur.title);
 const load = (i, autoplay) => {
   idx = i;
@@ -128,8 +127,6 @@ const load = (i, autoplay) => {
   strip.querySelectorAll("button").forEach((b, k) => b.setAttribute("aria-current", k === i));
   const b = strip.children[i]; if (b) b.scrollIntoView({block:"nearest", inline:"nearest"});
   $("#lbNow").textContent = cur.videos.length > 1 ? v.label ? `Now playing · ${v.label}` : `Now playing · clip ${pad(i + 1)} of ${pad(cur.videos.length)}` : "";
-  const ext = $("#lbExt");
-  ext.href = watchUrl(v); ext.textContent = `Watch on ${v.type === "yt" ? "YouTube" : "Vimeo"} ↗`;
 };
 const openPlayer = (p, i = 0) => {
   cur = p; lastFocus = document.activeElement;
