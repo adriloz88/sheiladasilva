@@ -8,11 +8,11 @@ PROJECTS.forEach(p => p.videos.forEach(v => { if (typeof v.label !== "string") d
 
 /* festival selection for The Sleepless Club */
 { const sc = PROJECTS.find(p => p.id === "sleepless");
-  if (sc) sc.awards = ["Chelsea Film Festival 2025 — Official Selection"]; }
+  if (sc) sc.awards = ["Chelsea Film Festival 2025 — Nominee, Best Short Film (Narrative Short Award)"]; }
 
 /* recognition banner */
 const AWARDS = [
-  {org:"Chelsea Film Festival", result:"Official Selection", cat:"2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
+  {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
   {org:"Critics Choice Awards", result:"Nominee", cat:"Best Sports Show", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"Shorty Impact Awards", result:"Audience Honor", cat:"Gender Equality", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"The Buzzies", result:"Nominee", cat:"Best Short Form Factual", work:"Fascinating Fails", sub:"PBS Terra", href:"social-media.html#fascinatingfails"},
