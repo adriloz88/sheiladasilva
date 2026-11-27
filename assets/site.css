@@ -179,7 +179,7 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 .c-solo{margin-top:36px;max-width:760px}
 .c-solo p{color:var(--mute);margin:0 0 26px;font-size:17px}
 .mail-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.c-solo .mail{font-size:clamp(24px,3.4vw,42px);font-weight:500;letter-spacing:-.02em;line-height:1.15;border-bottom:2px solid var(--purple);padding-bottom:4px;transition:color .2s,border-color .2s}
+.c-solo .mail{font-size:clamp(20px,2.4vw,30px);font-weight:500;letter-spacing:-.02em;line-height:1.15;border-bottom:2px solid var(--purple);padding-bottom:4px;transition:color .2s,border-color .2s}
 .c-solo .mail:hover{color:var(--green);border-color:var(--green)}
 .copy{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:none;font:500 11px/1 var(--mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase;transition:all .2s}
 .copy:hover{color:var(--green);border-color:var(--green)}
@@ -191,7 +191,8 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 .mail:hover{color:var(--purple)}
 .social{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
 .social a{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:14px;color:var(--mute);transition:all .2s}
-.social a:hover{color:#fff;background:var(--blue);border-color:var(--blue)}
+.social a:hover{color:var(--green);border-color:var(--green)}
+.social a:active,.social a.clicked,.social a.clicked:hover{color:var(--purple);border-color:var(--purple)}
 form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 label{display:grid;gap:8px;font:500 10.5px/1 var(--mono);color:var(--green);text-transform:uppercase;letter-spacing:.05em}
 label.full{grid-column:1/-1}

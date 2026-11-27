@@ -270,6 +270,9 @@ const reelBtn = $("#watchReel");
 if (reelBtn) reelBtn.addEventListener("click", () => openPlayer(PROJECTS.find(p => p.id === "reel")));
 
 /* ---- contact ---- */
+document.querySelectorAll(".social a").forEach(s => s.addEventListener("click", () => {
+  document.querySelectorAll(".social a").forEach(x => x.classList.remove("clicked")); s.classList.add("clicked");
+}));
 const copyBtn = $("#copyMail");
 if (copyBtn) copyBtn.addEventListener("click", async () => {
   try { await navigator.clipboard.writeText(CONTACT_EMAIL); copyBtn.textContent = "Copied ✓"; copyBtn.classList.add("done"); }
