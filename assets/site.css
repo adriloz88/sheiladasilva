@@ -167,6 +167,9 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 .about p{color:#d0c9bf;font-size:17px;max-width:56ch}
 .about p.lead{font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.6vw,32px);line-height:1.25;color:var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.about p i{font-style:normal;color:var(--ink)}
+.about p.avail{font:500 11px/1.6 var(--mono);color:var(--dim);letter-spacing:.05em;text-transform:uppercase;margin-top:18px}
+.photo img{object-position:50% 30%}
 .chips span{padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--mute)}
 @media(max-width:900px){.about .wrap{grid-template-columns:minmax(0,1fr)}.photo{max-width:440px}}
 
