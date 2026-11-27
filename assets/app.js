@@ -270,6 +270,12 @@ const reelBtn = $("#watchReel");
 if (reelBtn) reelBtn.addEventListener("click", () => openPlayer(PROJECTS.find(p => p.id === "reel")));
 
 /* ---- contact ---- */
+const copyBtn = $("#copyMail");
+if (copyBtn) copyBtn.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(CONTACT_EMAIL); copyBtn.textContent = "Copied ✓"; copyBtn.classList.add("done"); }
+  catch { copyBtn.textContent = "Select & copy"; }
+  setTimeout(() => { copyBtn.textContent = "Copy"; copyBtn.classList.remove("done"); }, 2200);
+});
 const mail = $("#mailLink");
 if (mail) { mail.textContent = CONTACT_EMAIL; mail.href = "mailto:" + CONTACT_EMAIL; }
 const form = $("#form");

@@ -3,7 +3,7 @@
    Contact form: paste a Formspree (or similar) endpoint to receive messages directly.
    If left blank, the form opens the visitor's email app addressed to CONTACT_EMAIL. */
 const FORM_ENDPOINT = "";
-const CONTACT_EMAIL = "hello@sheiladasilva.com"; // ← replace with your booking email
+const CONTACT_EMAIL = "work.sheiladasilva@gmail.com";
 
 const yt = (id,label) => ({type:"yt", id, label});
 const vm = id => ({type:"vm", id});

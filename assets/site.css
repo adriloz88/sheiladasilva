@@ -176,6 +176,15 @@ nav.solid,body.inner nav{background:rgba(10,10,11,.86);backdrop-filter:blur(14px
 /* contact */
 .contact{border-top:1px solid var(--line);padding:clamp(80px,10vw,128px) 0 clamp(56px,7vw,88px);background:radial-gradient(45% 60% at 100% 0%,rgba(157,0,255,.14),transparent 70%)}
 .contact h2{font-size:clamp(40px,6.4vw,84px);max-width:13ch}
+.c-solo{margin-top:36px;max-width:760px}
+.c-solo p{color:var(--mute);margin:0 0 26px;font-size:17px}
+.mail-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.c-solo .mail{font-size:clamp(24px,3.4vw,42px);font-weight:500;letter-spacing:-.02em;line-height:1.15;border-bottom:2px solid var(--purple);padding-bottom:4px;transition:color .2s,border-color .2s}
+.c-solo .mail:hover{color:var(--green);border-color:var(--green)}
+.copy{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:none;font:500 11px/1 var(--mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase;transition:all .2s}
+.copy:hover{color:var(--green);border-color:var(--green)}
+.copy.done{color:#fff;background:var(--purple);border-color:var(--purple)}
+.c-solo .social{margin-top:34px}
 .c-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,88px);margin-top:44px}
 .c-side p{color:var(--mute);margin:0 0 20px}
 .mail{font-size:clamp(18px,1.8vw,22px);text-decoration:none;border-bottom:1px solid var(--purple);overflow-wrap:anywhere}
