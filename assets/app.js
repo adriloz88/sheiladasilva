@@ -56,7 +56,7 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
 
 /* Made From Scratch: clip names */
 { const m = PROJECTS.find(p => p.id === "scratch");
-  if (m) ["S6 · Mario Lopez Special", "S6 · Mario Lopez Special", "S4, Ep 6 · Kyle"]
+  if (m) ["S6 · Mario Lopez Special (Part 1)", "S6 · Mario Lopez Special (Part 2)", "S4, Ep 6 · Kyle"]
     .forEach((t, i) => { if (m.videos[i]) m.videos[i].label = t; }); }
 
 /* recognition banner */
