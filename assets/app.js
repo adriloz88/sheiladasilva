@@ -72,6 +72,7 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
 
 /* Sex Sells: clip names */
 { const s = PROJECTS.find(p => p.id === "sexsells");
+  if (s && s.desc && s.desc[1]) s.desc[1] = "Episodes I edited feature Sarunas Jackson and Charlamagne tha God.";
   if (s) ["Ep 5 · 3's a Blast (Part 1)", "Ep 5 · 3's a Blast (Part 2)", "Ep 8 · Pop Your Podcast (Part 1)", "Ep 8 · Pop Your Podcast (Part 2)"]
     .forEach((t, i) => { if (s.videos[i]) s.videos[i].label = t; }); }
 
