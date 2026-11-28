@@ -77,6 +77,12 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
   if (s) ["Ep 5 · 3's a Blast (Part 1)", "Ep 5 · 3's a Blast (Part 2)", "Ep 8 · Pop Your Podcast (Part 1)", "Ep 8 · Pop Your Podcast (Part 2)"]
     .forEach((t, i) => { if (s.videos[i]) s.videos[i].label = t; }); }
 
+/* Don't Cancel Me + Upcycle Nation: honors */
+{ const d = PROJECTS.find(p => p.id === "dontcancel");
+  if (d) d.awards = ["Imagen Awards 2022 — Nominee, Best Variety or Reality Show", "NAMIC Vision Awards — Nominee"];
+  const u = PROJECTS.find(p => p.id === "upcycle");
+  if (u) u.awards = ["Anthem Awards 2024 — Honoree, Sustainability, Environment & Climate", "Shorty Impact Awards — Finalist, Environment & Sustainability"]; }
+
 /* recognition banner */
 const AWARDS = [
   {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
@@ -87,6 +93,10 @@ const AWARDS = [
   {org:"Montreal Independent Film Festival", result:"Official Selection", cat:"2021", work:"Restoration, Inc.", sub:"Dir. Bolaji Tijani-Qudus", href:"scripted.html#restoration"},
   {org:"Chicago Indie Film Awards", result:"Official Selection", cat:"2021", work:"Restoration, Inc.", sub:"Dir. Bolaji Tijani-Qudus", href:"scripted.html#restoration"},
   {org:"Gracie Awards", result:"Honorable Mention", cat:"Non-Fiction Entertainment · 2024", work:"Sex Sells", sub:"Fuse", href:"unscripted.html#sexsells"},
+  {org:"Anthem Awards", result:"Honoree", cat:"Sustainability, Environment & Climate · 2024", work:"Upcycle Nation", sub:"Fuse", href:"unscripted.html#upcycle"},
+  {org:"Shorty Impact Awards", result:"Finalist", cat:"Environment & Sustainability", work:"Upcycle Nation", sub:"Fuse", href:"unscripted.html#upcycle"},
+  {org:"Imagen Awards", result:"Nominee", cat:"Best Variety or Reality Show · 2022", work:"Don't Cancel Me", sub:"Fuse", href:"unscripted.html#dontcancel"},
+  {org:"NAMIC Vision Awards", result:"Nominee", cat:"Television Programming", work:"Don't Cancel Me", sub:"Fuse", href:"unscripted.html#dontcancel"},
   {org:"Critics Choice Awards", result:"Nominee", cat:"Best Sports Show", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"Shorty Impact Awards", result:"Audience Honor", cat:"Gender Equality", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"The Buzzies", result:"Nominee", cat:"Best Short Form Factual", work:"Fascinating Fails", sub:"PBS Terra", href:"social-media.html#fascinatingfails"},
