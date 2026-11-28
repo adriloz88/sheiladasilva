@@ -116,7 +116,7 @@ const CATS = [
    blurb:"Content built for retention: YouTube, social ads, commercials, corporate and event recaps, with motion graphics when the story needs it."},
   {id:"music",      page:"music.html",      name:"Music Videos",    unit:"videos", img:"https://i.ytimg.com/vi/TUvKh-Y7gCA/maxresdefault.jpg",
    short:"Rock, pop and more.",
-   blurb:"Cutting to the beat and beyond it — visual energy that matches the artist, from intimate ballads to high-octane tracks in English and Spanish."}
+   blurb:"From performance pieces to narrative stories, cutting to the beat and beyond it — across rock, pop and more."}
 ];
 
 const $ = (s, r = document) => r.querySelector(s);
