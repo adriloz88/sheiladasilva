@@ -59,6 +59,12 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
   if (m) ["S6 · Mario Lopez Special (Part 1)", "S6 · Mario Lopez Special (Part 2)", "S4, Ep 6 · Kyle"]
     .forEach((t, i) => { if (m.videos[i]) m.videos[i].label = t; }); }
 
+/* role lines */
+[["sexsells", "Editor · Seasons 2 & 3", "Editor, Seasons 2 & 3"], ["dontcancel", "Editor · Season 1", "Editor, Season 1"]].forEach(([id, role, fact]) => {
+  const p = PROJECTS.find(x => x.id === id);
+  if (p) { p.role = role; if (p.facts && p.facts.Role) p.facts.Role = fact; }
+});
+
 /* recognition banner */
 const AWARDS = [
   {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
