@@ -65,6 +65,11 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
   if (p) { p.role = role; if (p.facts && p.facts.Role) p.facts.Role = fact; }
 });
 
+/* We Need to Talk About America: clip names */
+{ const w = PROJECTS.find(p => p.id === "wntta");
+  if (w) ["Ep 4 · Parties", "Ep 8 · Obsessions", "Ep 7 · This is a sexy Toy", "Ep 4 · I Took the Wrong Pill"]
+    .forEach((t, i) => { if (w.videos[i]) w.videos[i].label = t; }); }
+
 /* recognition banner */
 const AWARDS = [
   {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
