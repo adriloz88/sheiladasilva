@@ -48,6 +48,7 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
 { const u = PROJECTS.find(p => p.id === "upcycle");
   if (u) {
     u.role = "Editor · Season 1";
+    if (u.desc && u.desc[1]) u.desc[1] = "I edited Episode 5 in its entirety and co-edited four additional episodes alongside two fellow editors.";
     if (u.facts && u.facts.Role) u.facts.Role = "Editor, Season 1";
     ["Ep 5 · A Quinceañera Dress that lasts beyond the Party", "Ep 1 · Anything can be a Bag, a Bag can be anything", "Ep 7 · A Glove that Fits Like a Dress", "Ep 6 · Gym Shorts on Runway"]
       .forEach((t, i) => { if (u.videos[i]) u.videos[i].label = t; });
