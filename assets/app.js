@@ -35,6 +35,15 @@ PROJECTS.forEach(p => p.videos.forEach(v => { if (typeof v.label !== "string") d
 document.addEventListener("click", e => { const b = e.target.closest(".ext-btn"); if (b) document.querySelectorAll(".ext-btn").forEach(x => x.classList.add("clicked")); });
 const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label)} <span aria-hidden="true">↗</span></a>` : "";
 
+/* Like a Girl: role + clip names */
+{ const g = PROJECTS.find(p => p.id === "likeagirl");
+  if (g) {
+    g.role = "Editor · Seasons 1 & 2";
+    if (g.facts && g.facts.Role) g.facts.Role = "Editor, Seasons 1 & 2";
+    ["April Ross (Interview)", "April Ross (Activity)", "Angel McCoughtry (Interview)", "Angel McCoughtry (Activity)", "CeCé Telfer (Interview)", "CeCé Telfer (Activity)"]
+      .forEach((t, i) => { if (g.videos[i]) g.videos[i].label = t; });
+  } }
+
 /* recognition banner */
 const AWARDS = [
   {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
