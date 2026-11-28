@@ -28,8 +28,12 @@ PROJECTS.forEach(p => p.videos.forEach(v => { if (typeof v.label !== "string") d
 
 /* Restoration, Inc.: link to the full movie */
 { const r = PROJECTS.find(p => p.id === "restoration");
-  if (r) r.link = {label:"Watch movie", url:"https://www.primevideo.com/region/na/detail/0FQTIDUNDNUB9RNM4FZXCF1JOD"}; }
-const linkBtn = p => p.link ? `<a class="btn btn-p ext-btn" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label)} <span aria-hidden="true">↗</span></a>` : "";
+  if (r) {
+    r.link = {label:"Watch movie", url:"https://www.primevideo.com/region/na/detail/0FQTIDUNDNUB9RNM4FZXCF1JOD"};
+    r.awards = ["Montreal Independent Film Festival — Official Selection 2021", "Chicago Indie Film Awards — Official Selection 2021"];
+  } }
+document.addEventListener("click", e => { const b = e.target.closest(".ext-btn"); if (b) document.querySelectorAll(".ext-btn").forEach(x => x.classList.add("clicked")); });
+const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label)} <span aria-hidden="true">↗</span></a>` : "";
 
 /* recognition banner */
 const AWARDS = [
@@ -38,6 +42,8 @@ const AWARDS = [
   {org:"Best Shorts Competition", result:"Award of Merit", cat:"Short Film", work:"Fish Out of Water", sub:"Dir. Chunyu Bao", href:"scripted.html#fish"},
   {org:"IndieFEST Film Awards", result:"Award of Merit", cat:"Short Film", work:"Fish Out of Water", sub:"Dir. Chunyu Bao", href:"scripted.html#fish"},
   {org:"48 Independent Short Film Festival", result:"Winner", cat:"Best Actor · 2018", work:"Fish Out of Water", sub:"Dir. Chunyu Bao", href:"scripted.html#fish"},
+  {org:"Montreal Independent Film Festival", result:"Official Selection", cat:"2021", work:"Restoration, Inc.", sub:"Dir. Bolaji Tijani-Qudus", href:"scripted.html#restoration"},
+  {org:"Chicago Indie Film Awards", result:"Official Selection", cat:"2021", work:"Restoration, Inc.", sub:"Dir. Bolaji Tijani-Qudus", href:"scripted.html#restoration"},
   {org:"Critics Choice Awards", result:"Nominee", cat:"Best Sports Show", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"Shorty Impact Awards", result:"Audience Honor", cat:"Gender Equality", work:"Like a Girl", href:"unscripted.html#likeagirl"},
   {org:"The Buzzies", result:"Nominee", cat:"Best Short Form Factual", work:"Fascinating Fails", sub:"PBS Terra", href:"social-media.html#fascinatingfails"},

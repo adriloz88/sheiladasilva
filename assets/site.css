@@ -350,6 +350,9 @@ footer a:hover{color:var(--ink)}
 /* external "Watch movie" button */
 .txt .ext-btn{margin-left:10px}
 .ext-btn span{font-size:13px}
+.ext-btn{border-color:rgba(243,237,228,.3);color:var(--ink);background:none}
+.ext-btn:hover{color:var(--green);border-color:var(--green)}
+.ext-btn:active,.ext-btn.clicked,.ext-btn.clicked:hover{background:var(--purple);border-color:var(--purple);color:#fff}
 .lb-link:empty{display:none}
 .lb-link{margin-top:18px}
 @media(max-width:420px){.txt .ext-btn{margin-left:0}}
