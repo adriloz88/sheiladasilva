@@ -44,6 +44,15 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
       .forEach((t, i) => { if (g.videos[i]) g.videos[i].label = t; });
   } }
 
+/* Upcycle Nation: role + clip names */
+{ const u = PROJECTS.find(p => p.id === "upcycle");
+  if (u) {
+    u.role = "Editor · Season 1";
+    if (u.facts && u.facts.Role) u.facts.Role = "Editor, Season 1";
+    ["Ep 5 · A Quinceañera Dress that lasts beyond the Party", "Ep 1 · Anything can be a Bag, a Bag can be anything", "Ep 7 · A Glove that Fits Like a Dress", "Ep 6 · Gym Shorts on Runway"]
+      .forEach((t, i) => { if (u.videos[i]) u.videos[i].label = t; });
+  } }
+
 /* recognition banner */
 const AWARDS = [
   {org:"Chelsea Film Festival", result:"Nominee", cat:"Best Short Film · 2025", work:"The Sleepless Club", sub:"Dir. Guillermo Arcaya", href:"scripted.html#sleepless"},
