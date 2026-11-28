@@ -40,7 +40,7 @@ const linkBtn = p => p.link ? `<a class="btn ext-btn" href="${esc(p.link.url)}" 
   if (g) {
     g.role = "Editor · Seasons 1 & 2";
     if (g.facts && g.facts.Role) g.facts.Role = "Editor, Seasons 1 & 2";
-    ["April Ross (Interview)", "April Ross (Activity)", "Angel McCoughtry (Interview)", "Angel McCoughtry (Activity)", "CeCé Telfer (Interview)", "CeCé Telfer (Activity)"]
+    ["Ep 1 · April Ross (Interview)", "Ep 1 · April Ross (Activity)", "Ep 6 · Angel McCoughtry (Interview)", "Ep 6 · Angel McCoughtry (Activity)", "Ep 3 · CeCé Telfer (Interview)", "Ep 3 · CeCé Telfer (Activity)"]
       .forEach((t, i) => { if (g.videos[i]) g.videos[i].label = t; });
   } }
 
